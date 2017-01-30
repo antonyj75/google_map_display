@@ -1,0 +1,10 @@
+stop_id,stop_code,platform_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,stop_timezone
+9673,,,Albany (Phoenix Inn Suites),,44.6294281206632,-123.060811758041,110,,0,,
+9671,,,Woodburn (Best Western Hotel),,45.1523849374081,-122.877241373062,112,,0,,
+2328313,,,Eugene (Student Rec Center),,44.0433516472599,-123.073223215093,201,,0,,
+9675,,,Corvallis (Hilton Garden Inn),,44.5576688810995,-123.278805613518,109,,0,,
+9672,,,Salem (Airport),,44.910535834617,-123.008181452751,111,,0,,
+9674,,,Corvallis (OSU Memorial Union),,44.5646041892753,-123.279643803835,109,,0,,
+2328312,,,Albany,,44.5680137839425,-123.174540019764,110,,0,,
+9670,,,Portland International Airport (PDX),,45.589432,-122.592827,113,,0,,
+13919,,,Eugene (U of O - Phoenix Inn),,44.0489369910733,-123.080021739006,201,,0,,

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html style="height:100%;margin:0;padding:0">
+	<body style="height:90%;margin:10;padding:0">
+		<h1>Google Maps</h1>
+
+		<div id="gmap" style="width:100%;height:80%;"></div>
+
+		<script>
+var coordinates;
+function showMap() {
+	var script = document.createElement("script");
+	script.src = "stops_geojson_output.js";
+	document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+window.geojson_callback = function(results) {
+	console.log(results.features);
+	var coord1 = results.features[0].geometry.coordinates;
+	var centerCoord = new google.maps.LatLng(coord1[0], coord1[1]);
+	var mapCanvas = document.getElementById("gmap");
+	var mapOptions = {center: centerCoord, zoom: 8};
+	var map = new google.maps.Map(mapCanvas, mapOptions);
+	for (var i = 0; i < results.features.length; i++) {
+		var coords = results.features[i].geometry.coordinates;
+		var latLng = new google.maps.LatLng(coords[0], coords[1]);
+		var marker = new google.maps.Marker({position:latLng});
+		marker.setMap(map);
+	}
+}
+		</script>
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNaBATj8nX8oUfKDKjir_n_bNHx-CsTl4&callback=showMap"></script>
+
+	</body>
+</html>
+
