@@ -14,7 +14,7 @@ python geojson_generator.py stops.txt
 ```
 
 
-### Prerequisites for running the geojson_generator Python script
+#### Prerequisites for running the geojson_generator Python script
 
 1. Python3
 2. [SciPy](http://scipy.github.io/devdocs/index.html) package
@@ -23,8 +23,8 @@ python geojson_generator.py stops.txt
 Step 2. Open the display_geojson_in_map.html in browser
 -------------------------------------------------------
 
-Once the `stops_geojson_output.js` is generated successfully by the Python script, just open the display_geojson_in_map.html file in a browser.
-You should see a google map with stops marked and a polgon drawn around the stops.
+Once the `stops_geojson_output.js` is generated successfully by the Python script, just open the `display_geojson_in_map.html` file in a browser.
+You should see a google map with stops marked and a Polygon drawn around the marked stops.
 
 
 Next steps
