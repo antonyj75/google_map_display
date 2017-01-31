@@ -18,8 +18,7 @@ class TestGeoJsonGeneration(unittest.TestCase):
         with open('test_stops.txt', 'w') as f:
             f.write(input_stops)
         
-        output = geojson_generator.get_geojson_features('test_stops.txt', 'Point')
-        print(expected_output)
+        output = geojson_generator.get_geojson_features('test_stops.txt')
         self.assertEqual(output, expected_output)
         os.remove('test_stops.txt')
 
@@ -35,8 +34,7 @@ class TestGeoJsonGeneration(unittest.TestCase):
         with open('test_stops.txt', 'w') as f:
             f.write(input_stops)
 
-        output = geojson_generator.get_geojson_features('test_stops.txt', 'Point')
-        print(expected_output)
+        output = geojson_generator.get_geojson_features('test_stops.txt')
         self.assertEqual(output, expected_output)
         os.remove('test_stops.txt')
 
@@ -49,7 +47,7 @@ class TestGeoJsonGeneration(unittest.TestCase):
         with open('test_stops.txt', 'w') as f:
             f.write(input_stops)
 
-        output = geojson_generator.get_geojson('test_stops.txt', 'Point')
+        output = geojson_generator.get_geojson('test_stops.txt')
         expected_output = "geojson_callback(" + json.dumps(expected_output_json, indent=4) + ");"
         print(expected_output)
         print(output)

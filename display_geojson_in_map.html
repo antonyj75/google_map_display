@@ -3,7 +3,7 @@
 	<body style="height:90%;margin:10;padding:0">
 		<h1>Google Maps</h1>
 
-		<div id="gmap" style="width:100%;height:80%;"></div>
+		<div id="gmap" style="width:100%;height:85%;"></div>
 
 		<script>
 var coordinates;
@@ -18,14 +18,33 @@ window.geojson_callback = function(results) {
 	var coord1 = results.features[0].geometry.coordinates;
 	var centerCoord = new google.maps.LatLng(coord1[0], coord1[1]);
 	var mapCanvas = document.getElementById("gmap");
-	var mapOptions = {center: centerCoord, zoom: 8};
+	var mapOptions = {center: centerCoord, zoom: 7};
 	var map = new google.maps.Map(mapCanvas, mapOptions);
+	var polygonCoords = [];
 	for (var i = 0; i < results.features.length; i++) {
+		if (results.features[i].geometry.type === 'Polygon') {
+			polygonCoords = results.features[i].geometry.coordinates;
+			continue;
+		}
 		var coords = results.features[i].geometry.coordinates;
 		var latLng = new google.maps.LatLng(coords[0], coords[1]);
 		var marker = new google.maps.Marker({position:latLng});
 		marker.setMap(map);
 	}
+	var polygonVertices = [];
+	for (var i = 0; i < polygonCoords.length; i++) {
+		console.log(polygonCoords[i][0], polygonCoords[i][1]);
+		polygonVertices.push(new google.maps.LatLng(polygonCoords[i][0], polygonCoords[i][1]));
+	}
+	var stopsPolygon = new google.maps.Polygon({
+		paths: polygonVertices,
+		strokeColor: '#FF0000',
+		strokeOpacity: 0.8,
+		strokeWeight: 3,
+		fillColor: '#FF0000',
+		fillOpacity: 0.35
+	});
+	stopsPolygon.setMap(map);
 }
 		</script>
 
